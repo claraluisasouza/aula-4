@@ -1,18 +1,21 @@
-
 const botoes = document.querySelectorAll("button");
 
 botoes.forEach(function (botao) {
     let curtiu = false;
     botao.addEventListener("click", botaoClicado);
+
     function botaoClicado() {
-        console.log("fui clicado");
         let texto = botao.querySelector("span");
+        let contador = parseInt(texto.textContent);
+
         if (curtiu === false) {
-            texto.textContent++;
+            texto.textContent = contador + 1;
             curtiu = true;
+            botao.style.opacity = "0.8";
         } else {
-            texto.textContent--;
+            texto.textContent = contador - 1;
             curtiu = false;
+            botao.style.opacity = "1";
         }
     }
 });
